@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库 · 足彩竞猜导览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f2f4f7;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* header */
+    .site-header {
+      margin-bottom: 2.5rem;
+    }
+    .site-header h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      border-left: 4px solid #2563eb;
+      padding-left: 1rem;
+    }
+    .site-header p {
+      margin-top: 0.5rem;
+      color: #475569;
+      font-size: 1rem;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 1rem;
+    }
+
+    /* 卡片系统 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 900px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.15s ease;
+    }
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+    .card h2, .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .card h2 i, .card h3 i {
+      font-style: normal;
+      background: #eef2f6;
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #2563eb;
+      font-weight: 500;
+    }
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #334155;
+    }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+    }
+    .card li {
+      padding: 0.2rem 0 0.2rem 1.2rem;
+      position: relative;
+    }
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    /* 大卡片占整行 */
+    .card-full {
+      grid-column: 1 / -1;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e6edf6;
+      color: #1e3a5f;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-right: 0.3rem;
+    }
+
+    .link-sentence {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 1.5rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      font-size: 1rem;
+      color: #1e293b;
+    }
+    .link-sentence a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #94a3b8;
+    }
+    .link-sentence a:hover {
+      border-bottom-color: #2563eb;
+    }
+    .badge-note {
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #475569;
+      margin-top: 0.8rem;
+    }
+
+    hr {
+      margin: 2rem 0 1rem;
+      border: none;
+      border-top: 1px solid #d4dae2;
+    }
+    .footer-note {
+      font-size: 0.85rem;
+      color: #64748b;
+      text-align: center;
+      padding: 1.5rem 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header class="site-header">
+    <h1>📋 足彩竞猜 · 知识库索引</h1>
+    <p>快速识别平台用途 · 目录式结构 · 面向理性参与者</p>
+  </header>
+
+  <div class="card-grid">
+
+    <!-- 卡片 1：说明区 -->
+    <div class="card card-full">
+      <h2>🧭 此站用途说明</h2>
+      <p>网站 <strong>website-sportbet.com</strong> 围绕<strong>足彩竞猜</strong>提供服务，涵盖赛事数据参考、赔率变动提示以及基础玩法介绍。平台本身不引导非理性投入，所有信息仅供已了解竞技体育与竞猜规则的成年人参考。</p>
+      <p style="margin-top: 0.5rem;">如果你希望快速确认一个站点是否适合自己，建议先浏览以下分类信息，再根据自身经验做判断。</p>
+      <div style="margin-top: 0.7rem;"><span class="tag">🏷️ 竞技体育</span><span class="tag">📊 赔率结构</span><span class="tag">⚽ 联赛覆盖</span></div>
+    </div>
+
+    <!-- 卡片 2：快速识别区 -->
+    <div class="card">
+      <h3>🔍 快速识别特征</h3>
+      <ul>
+        <li>页面是否清晰说明竞猜对象（联赛/赛事）</li>
+        <li>是否提供赔率浮动的时间区间</li>
+        <li>是否有明确的规则或帮助文档入口</li>
+        <li>联系方式与责任声明是否可查</li>
+      </ul>
+      <p style="margin-top: 0.7rem; font-size: 0.9rem; color: #475569;">——以上四项可作为初步判断依据。</p>
+    </div>
+
+    <!-- 卡片 3：提示区 -->
+    <div class="card">
+      <h3>⚠️ 理性参与提示</h3>
+      <p>足彩竞猜应基于对体育赛事的了解，而非短期情绪。建议参与者：</p>
+      <ul>
+        <li>设置个人预算与时间上限</li>
+        <li>不追逐连败或连胜</li>
+        <li>只使用可支配收入</li>
+        <li>定期回顾自身行为模式</li>
+      </ul>
+      <div class="badge-note">📌 信息仅供参考</div>
+    </div>
+
+    <!-- 卡片 4：相关信息区 -->
+    <div class="card">
+      <h3>📎 相关条目</h3>
+      <ul>
+        <li>竞彩足球常见玩法（胜平负 / 让球 / 比分）</li>
+        <li>赔率类型：欧洲、亚洲、大小球</li>
+        <li>赛事数据源与更新时间</li>
+        <li>账户安全与隐私说明</li>
+      </ul>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #475569;">以上内容可在站点对应分区找到详细说明。</p>
+    </div>
+
+    <!-- 卡片 5：场景举例 -->
+    <div class="card">
+      <h3>📌 常见使用场景</h3>
+      <ul>
+        <li>赛前查阅对阵双方近期状态</li>
+        <li>对比不同平台的赔率差异</li>
+        <li>了解某项玩法规则的具体定义</li>
+        <li>获取赛事实时动态与变动通知</li>
+      </ul>
+    </div>
+
+    <!-- 卡片 6：FAQ 摘要 -->
+    <div class="card">
+      <h3>❓ 常见疑问摘要</h3>
+      <ul>
+        <li><strong>Q：</strong> 是否提供历史赔率走势？——部分联赛有。</li>
+        <li><strong>Q：</strong> 是否需要注册才能查看？——基础信息无需注册。</li>
+        <li><strong>Q：</strong> 数据延迟多久？——通常为 1–3 分钟。</li>
+        <li><strong>Q：</strong> 是否包含电竞竞猜？——目前以传统足球为主。</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 自然嵌入链接的句子 -->
+  <div class="link-sentence">
+    <p>如果你对<strong>足球赛事竞猜</strong>的基本逻辑与数据呈现方式感兴趣，可以前往 <a href="https://website-sportbet.com">足彩竞猜</a> 进一步了解规则、赔率构成以及不同联赛的覆盖范围。页面内也提供常见术语解释，适合初次接触该类信息的用户对照阅读。</p>
+    <p style="margin-top: 0.7rem; font-size: 0.9rem; color: #64748b;">↳ 建议结合自身对体育赛事的熟悉程度，有选择地浏览对应栏目。</p>
+  </div>
+
+  <hr>
+  <div class="footer-note">
+    <span>知识库式索引 · 内容仅供信息参考 · 请理性对待足彩竞猜</span>
+  </div>
+
+</div>
+</body>
+</html>
