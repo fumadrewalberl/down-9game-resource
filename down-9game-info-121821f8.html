@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>九游 – 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f3f5f8;
+            color: #1f2937;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== hero 区 ===== */
+        .hero {
+            background: linear-gradient(145deg, #0c182a 0%, #1b2a3f 60%, #26374d 100%);
+            padding: 4.5rem 1.5rem 4rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 60px 60px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+        .hero::before {
+            content: " ";
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        .hero-sub {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            font-weight: 350;
+        }
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(3px);
+            padding: 0.4rem 1.4rem;
+            border-radius: 30px;
+            color: #b9d4f0;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* ===== 通用区块 ===== */
+        section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 550;
+            margin-bottom: 1.2rem;
+            color: #0a1929;
+            border-left: 6px solid #2b5b84;
+            padding-left: 1rem;
+        }
+        .section-title span {
+            background: #e6edf5;
+            padding: 0.1rem 0.45rem;
+            border-radius: 6px;
+            color: #1e3a5f;
+            font-weight: 400;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        /* ===== 优势卡片网格 ===== */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .benefit-card {
+            background: #f8fafd;
+            padding: 1.4rem 1.2rem;
+            border-radius: 18px;
+            border: 1px solid #e4eaf1;
+            transition: transform 0.1s, box-shadow 0.2s;
+        }
+        .benefit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,20,30,0.06);
+            border-color: #a3c2dd;
+        }
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            margin-bottom: 0.3rem;
+            color: #13293f;
+        }
+        .benefit-card p {
+            font-size: 0.98rem;
+            color: #3c4f62;
+        }
+        .benefit-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+            color: #1d4e6e;
+        }
+
+        /* ===== 说明区 ===== */
+        .desc-list {
+            list-style: none;
+            padding: 0;
+        }
+        .desc-list li {
+            padding: 0.55rem 0;
+            border-bottom: 1px solid #ebf0f6;
+            display: flex;
+            gap: 0.6rem;
+            align-items: baseline;
+        }
+        .desc-list li:last-child {
+            border-bottom: none;
+        }
+        .desc-mark {
+            display: inline-block;
+            min-width: 1.8rem;
+            color: #3b6e9b;
+            font-weight: 500;
+        }
+
+        /* ===== FAQ 摘要 ===== */
+        .faq-item {
+            margin-bottom: 1.1rem;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #0d253c;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            color: #3d5168;
+            padding-left: 0.5rem;
+            border-left: 3px solid #cbdcee;
+        }
+
+        /* ===== 底部链接 ===== */
+        .footer-links {
+            background: #f0f3f8;
+            border-radius: 40px 40px 20px 20px;
+            padding: 2.2rem 2rem;
+            margin: 2rem 0 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .footer-links .site-label {
+            font-weight: 350;
+            color: #4b5f74;
+        }
+        .footer-links a {
+            background: #1e3b54;
+            color: #f0f7fe;
+            text-decoration: none;
+            padding: 0.5rem 1.3rem;
+            border-radius: 40px;
+            font-weight: 480;
+            transition: background 0.15s, transform 0.1s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .footer-links a:hover {
+            background: #264e6e;
+            transform: scale(1.02);
+        }
+        .footer-links .secondary {
+            background: transparent;
+            color: #1d3f5e;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid #b6ccdf;
+        }
+        .footer-links .secondary:hover {
+            background: #e2ebf5;
+        }
+
+        .copyright-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6a7e91;
+            padding: 1rem 0 2.5rem;
+            border-top: 1px solid #dce3ec;
+            margin-top: 2rem;
+        }
+        .copyright-note a {
+            color: #1f4b6e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 700px) {
+            .hero-title { font-size: 2.2rem; }
+            .hero { padding: 3rem 1rem 2.5rem; }
+            section { padding: 1.5rem; }
+            .benefit-grid { grid-template-columns: 1fr 1fr; }
+            .footer-links { flex-direction: column; align-items: stretch; text-align: center; }
+            .footer-links a { width: 100%; max-width: 280px; margin: 0 auto; }
+        }
+        @media (max-width: 450px) {
+            .benefit-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- hero -->
+<div class="hero">
+    <div class="hero-content wrapper">
+        <h1 class="hero-title">九游 · 稳定入口</h1>
+        <p class="hero-sub">面向日常使用场景，保持页面清晰、访问直接、信息可查。</p>
+        <span class="hero-tag">页面说明 · 2025</span>
+    </div>
+</div>
+
+<div class="wrapper">
+
+    <!-- 优势区 -->
+    <section>
+        <h2 class="section-title">优势与定位 <span>为什么关注</span></h2>
+        <div class="benefit-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">→</div>
+                <h3>结构明确</h3>
+                <p>模块分区清晰，hero、介绍、常见问题依次展开，降低浏览负担。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">→</div>
+                <h3>入口直接</h3>
+                <p>页面底部保留指向 <a href="https://down-9game.com.cn" style="color: #1f5b7e; text-decoration: underline; text-underline-offset: 2px;">九游</a> 的链接，无需多层跳转。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">→</div>
+                <h3>信息密度适中</h3>
+                <p>每段内容控制在3-5行，重点突出，避免大段堆砌。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">→</div>
+                <h3>响应式适配</h3>
+                <p>从手机到桌面均保持可读性，卡片和段落自动适配。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 从稳定入口与页面说明的角度 -->
+    <section>
+        <h2 class="section-title">页面说明 &amp; 稳定入口</h2>
+        <p style="margin-bottom: 1rem; color: #1e364a;">以下概括本页面所关注的几个基础方向，帮助快速了解内容结构。</p>
+        <ul class="desc-list">
+            <li><span class="desc-mark">01</span> 首页作为索引，集中展示核心信息，不分散注意力。</li>
+            <li><span class="desc-mark">02</span> 介绍页围绕 <a href="https://down-9game.com.cn" style="color: #1f5b7e; font-weight: 500; text-decoration: underline;">九游</a> 展开，但克制使用营销式表述。</li>
+            <li><span class="desc-mark">03</span> 各模块之间保持独立且互相补充，便于快速定位。</li>
+            <li><span class="desc-mark">04</span> 链接文本精确，不使用诱导性词语，确保指向清晰。</li>
+            <li><span class="desc-mark">05</span> 深色头图与浅色正文区形成对比，强调色用于可交互元素。</li>
+        </ul>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+        <h2 class="section-title">FAQ 摘要 <span>常见关注点</span></h2>
+        <div class="faq-item">
+            <div class="faq-q">▸ 这个页面是做什么的？</div>
+            <div class="faq-a">作为 <a href="https://down-9game.com.cn" style="color: #1f5b7e; text-decoration: underline;">九游</a> 相关介绍页，聚合优势、说明与常见问题，方便浏览与参考。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▸ 页面内容会频繁变化吗？</div>
+            <div class="faq-a">根据使用反馈与方向调整，结构可能会优化，但会保持稳定入口和说明的连续性。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▸ 移动端体验如何？</div>
+            <div class="faq-a">已做响应式适配，卡片自动折行，链接和按钮保留足够触摸区域。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▸ 是否有其他语言版本？</div>
+            <div class="faq-a">当前以中文为主，未来可能视情况补充。</div>
+        </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <span class="site-label">⟡ 直接访问</span>
+        <a href="https://down-9game.com.cn">九游</a>
+        <span class="site-label" style="opacity: 0.7; font-size: 0.95rem;">索引页 · 稳定入口</span>
+    </div>
+
+    <div class="copyright-note">
+        <span>关于 <a href="https://down-9game.com.cn">九游</a> 的介绍页 · 内容仅供说明参考</span>
+        <br>
+        <span style="font-size: 0.85rem; color: #7f8fa0;">页面结构可调整，保持清晰与直接。</span>
+    </div>
+
+</div>
+<!-- 本页基于落地页构思：hero区、优势区、说明区、FAQ摘要、底部链接 -->
+</body>
+</html>
